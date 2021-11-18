@@ -1,0 +1,182 @@
+
+.calendar2 .calendar-week{
+   display: grid;
+   grid-template-columns:auto repeat(1, minmax(var(--minInlineSize), var(--maxInlineSize)));
+   grid-template-rows:7rem  repeat(24, minmax(var(--minBlockSize), var(--maxBLockSize)));
+   min-block-size: 700px;
+
+}
+
+/* Task */
+
+.calendar2 .task{
+   /* border: 1px solid red; */
+   background: var(--blue10);
+   color: var(--white);
+   border-radius: .25rem;
+   padding-inline:1rem;
+   padding-block: .625rem;
+   font: var(--body2-medium);
+   overflow: hidden;
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   gap: .25rem;
+}
+
+.calendar2 .task p{
+   margin: 0;
+   white-space: nowrap;
+}
+
+/* Task Cell */
+
+.calendar2 .taskCell{
+   border-inline-start: 1px solid currentColor;
+   border-block-end: 1px solid currentColor;
+   padding: .25rem;
+}
+
+
+.calendar2 .taskCell.is-active::before{
+   content: "(Sin titulo)";
+   font-size: small;
+   background-color: #c6dafc;
+   padding: .25rem;
+   display: block;
+   border-radius: .25rem;
+   box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+/* Calendar Day */
+
+   .calendar2  .calendarDay{
+      /* border: 1px solid red; */
+   background: var(--white);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: start;
+   text-align: center;
+   margin: 0;
+   position: sticky;
+   inset-block-start: 0;
+   border-block-end: 1px solid currentColor;
+   padding-inline-start: 1rem;
+}
+
+   .calendar2  .calendarDay a{
+   text-decoration: none;
+   color: currentColor;
+   outline: none;
+}
+
+.calendar2  .calendarDay a:hover .calendar2  span:nth-of-type(2),
+   .calendar2  .calendarDay a:focus .calendar2  span:nth-of-type(2){
+   background: var(--gray10);
+}
+.calendar2  .calendarDay.is-selected a:hover .calendar2  span:nth-of-type(2),
+   .calendar2  .calendarDay.is-selected a:focus .calendar2  span:nth-of-type(2){
+   background: var(--blue30);
+}
+
+
+   .calendar2  .calendarDay span:nth-of-type(1){
+   font: var(--body1-regular);
+}
+   .calendar2  .calendarDay span:nth-of-type(2){
+   font: var(--subtitle-subtitle1);
+   line-height: 2.75rem;
+   inline-size: 2.75rem;
+   display: inline-block;
+   border-radius: 50%;
+}
+
+   .calendar2  .calendarDay::before{
+   content: '';
+   inline-size: 1px;
+   block-size: 2rem;
+   background: currentColor;
+   position: absolute;
+   inset-block-end: 0;
+   inset-inline-start: 0;
+
+}
+
+   .calendar2  .calendarDay.is-selected span:nth-of-type(1){
+   color: var(--blue10);
+}
+   .calendar2  .calendarDay.is-selected span:nth-of-type(2){
+   background: var(--blue10);
+   color: var(--white);
+}
+
+/* Time Zone */
+   .calendar2 .timezoneCell{
+   /* border: 1px solid red; */
+   font: var(--body3-regular);
+   position: sticky;
+   inset-block-start: 0;
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+   padding-inline-end: 1rem;
+   white-space: nowrap;
+   background: var(--white);
+   z-index: 2;
+}
+
+   .calendar2 .timezoneCell::before{
+   content: '';
+   inline-size: .5rem;
+   block-size: 1px;
+   background: var(--gray20);
+   position: absolute;
+   inset-inline-end:0 ;
+   inset-block-end: 0;
+}
+
+/* Hour cell */
+
+   .calendar2 .hourCell{
+   /* border: 1px solid red;   */
+   place-self: start end;
+   transform: translateY(-50%);
+   font: var(--body3-regular);
+   padding-inline-end: 1rem;
+}
+
+   .calendar2 .hourCell::before{
+   content: '';
+   inline-size: .5rem;
+   block-size: 1px;
+   background: currentColor;
+   position: absolute;
+   inset-inline-end: 0;
+   inset-block-end: 50%;
+
+}
+
+
+/* Current Time */
+
+   .calendar2 .current-time{
+   border: 1px solid red;
+      block-size: 2px;
+   background-color: var(--red10);
+   inline-size: 93.5%;
+   position: absolute;
+   inset-inline-start:61px ;
+   inset-block-start: 205px;
+   z-index: 2;
+}
+
+   .calendar2 .current-time::before{
+   content: '';
+   display: block;
+   transform: translateY(-49%);
+   inline-size: 1rem;
+   block-size: 1rem;
+   background-color: var(--red10);
+   border-radius: 50%;
+}
